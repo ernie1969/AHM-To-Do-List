@@ -1,0 +1,533 @@
+/* Author: AdHubManila
+    Contact No: +63 0995 001 6415
+    Email: adhubmanila@gmail.com
+    Web URL: https://adhubmanila.hstn.me 
+*/
+/*
+@import url("https://fonts.googleapis.com/css2?family=Roboto Condensed:norm,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:norm,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+*/
+/*     Home Section - Header     */
+.ahm-navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    padding: 1.5rem 10%;
+}
+.logo{
+    height: 3.5rem;
+    width: 3.5rem;
+}
+.logo img{
+    max-width: 3.5rem;
+    height: auto;
+}
+.navmenu{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+.navmenu a{
+    color: var(--primary-color);
+    padding: 0.5rem;
+}
+.navmenu a:hover{
+    background-color: var(--accent-color);   
+}
+
+/*     Home Section - Toggle Button     */
+.toggle-btn{
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    display: none;
+}
+
+/*     Home Section - Dropdown Menu     */
+.dropMenu{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    margin-right: 8%;
+    color: var(--primary-color);
+    display: none;
+    z-index: 2;    
+}
+.dropMenu a{
+    line-height: 2rem;
+    padding: 0.1rem 0.5rem;
+    color: var(--primary-color);
+}
+.dropMenu a:hover{
+    color: var(--primary-color);
+    border-radius: 0.1rem;
+}
+
+/*     Home Section - Slider     */
+.ahm-slider{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.ahm-slider .ahm-overlay{
+    width: 100%;
+    height: 40.5rem;
+}
+.ahm-slider .slides{
+    height: 40.5rem;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+/*    Home Section - Caption     */
+.caption h3{
+    color: var(--primary-color);
+    text-shadow: 3px 4px 4px rgba(0, 0, 0, 0.8);
+}
+.caption .tagline{
+    color: var(--primary-color);
+    text-shadow: 3px 4px 4px rgba(0, 0, 0, 0.8);
+}
+.caption p{
+    color: var(--primary-color);
+    text-shadow: 3px 4px 4px rgba(0, 0, 0, 0.8);
+}
+.caption .ahm-btn{
+    margin-top: 1.5rem;
+    color: var(--primary-color);
+    border: 0.1rem solid var(--primary-color);
+}
+.caption .ahm-btn:hover{
+    border: none;
+    outline: none;
+}
+
+
+/*    Home Section - Bullets and Dots     */
+.bullet {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    bottom: 1.5rem;
+}
+.dot {
+    cursor: pointer;
+    height: 0.3rem;
+    width: 0.3rem;
+    margin: 0 0.6rem;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.bullet .active {
+    background-color: var(--accent-color);
+    height: 0.5rem;
+    width: 0.5rem;
+}
+
+/*     Services Section     */
+.welcome h1{
+    color: var(--accent-color);
+}
+.ahm-service .ahm-btn{
+    margin-top: 1.5rem;
+}
+.ahm-service .f-card{
+    padding: 3rem;
+}
+.ahm-container .f-card:hover{
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
+}
+.ahm-container .f-card i{
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+.ahm-container .f-card i:hover{
+    transform: scale(1.5);
+}
+/*     Services - Page Section     */
+.ahm-services .ahm-container{
+    display: flex;
+    align-items: stretch;
+}
+.ahm-services .ahm-card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.ahm-services .ahm-btn{
+    margin-top: 1rem;
+}
+.ahm-services figcaption .icon{
+    background-color: var(--accent-color);
+    font-size: 2rem;
+    color: var(--primary-color);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+.ahm-services figure p{
+    margin-top: 2rem;
+}
+
+/*     About Section     */
+.ahm-card img{
+    max-width: 100%;
+    height: auto;
+}
+.ahm-about .ahm-container{
+    align-items: center;
+}
+/*     About Section - Page     */
+.about-page .ahm-hero{
+    width: 33.4rem;
+    position: relative;
+}
+.ahm-hero .ahm-caption{
+    position: absolute;
+    z-index: 3;
+    color: var(--primary-color);
+    text-align: center;
+    padding: 20% 14%;
+}
+.ahm-hero .ahm-caption h2{
+    color: var(--primary-color);
+}
+.about-page .ahm-overlay{
+    height: 19rem;
+    max-width: 60rem;
+    height: 99%;
+}
+.ahm-hero img{
+    max-width: 100%;
+    height: auto;
+}
+.mission-values{
+    padding-top: 3rem;
+}
+.mission-values .ahm-card{
+    border: 0.1rem solid var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 2rem 3rem;
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.mission-values .ahm-card:hover{
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3); 
+}
+.mission-values .ahm-card i{
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: var(--accent-color);
+    transition: transform 0.3s ease;
+}
+.mission-values .ahm-card i:hover{
+    transform: scale(1.5);
+}
+.mission-values .ahm-card h3{
+    margin-bottom: 1rem;
+}
+
+/*     Project Section     */
+.ahm-projects .f-card{
+    text-align: center;
+    padding: 0;    
+}
+.f-card{
+    position: relative;
+}
+.f-card h6{
+    margin: 1rem 0;
+    color: var(--accent-color);
+}
+.f-card:hover button{
+    opacity: 1;
+}
+.f-card img{
+    max-width: 100%;
+    height: auto;
+}
+.ahm-projects button{
+    margin-top: 30%;
+    border: 0.1rem solid var(--primary-color);
+    border-radius: 0.1rem;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    transition: transform 0.3s ease; 
+}
+.ahm-accordion{
+    background-color: var(--overlay-color);
+    color: var(--primary-color);
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    display: block;
+    padding: 3rem;
+    opacity: 0;    
+}
+.ahm-accordion:hover{
+    border: 0.1rem solid var(--accent-color);
+    transform: scale(1.05);
+}
+.panel{
+    max-height: 0;
+    transition: max-height 0.4s ease-out;
+    padding: 0 1rem; /* Add horizontal padding to look clean */
+    text-align: center; /* Center the text inside the panel */
+    line-height: 1rem;
+    overflow: hidden;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 1rem 0;
+}
+.ahm-accordion.active {
+    background-color: var(--accent-color);
+    border: none;
+}
+.ahm-book{
+    text-align: center;
+    padding-bottom: 3rem;
+}
+/*     Project - Page Section     */
+.ahm-project-gallery{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+    gap: 1.5rem; /* Space between cards */
+    padding-top: 2rem;
+  }
+.ahm-project-gallery .t-card{
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    /* Sets the card height to be a perfect square for a clean, visual grid */
+    aspect-ratio: 1 / 1; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+.ahm-project-gallery .t-card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images fill the square card without stretching */
+    transition: transform 0.4s ease;
+}
+.ahm-project-gallery .t-card:hover img {
+    transform: scale(1.05); /* Subtle zoom effect on hover */
+}
+.info-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Subtle dark overlay */
+    background-color: rgba(0, 0, 0, 0.7); 
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+    /* Center the content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    color: var(--primary-color); /* White text */
+}
+.ahm-project-gallery .t-card:hover .info-overlay {
+    opacity: 1; /* Show overlay on hover */
+}
+.info-overlay h3, h6{
+  color: var(--primary-color);
+}
+.info-overlay .ahm-btn{
+    color: var(--primary-color);
+}
+.project-filter{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.project-filter a{
+    color: var(--text-color);
+}
+.project-filter a:hover, .project-filter .active{
+    color: var(--accent-color);
+}
+
+/*  Dowloadable Section   */
+.t-card img{
+    max-width: 100%;
+    height: auto;
+}
+.t-card:hover{
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
+}
+.t-card h3{
+    padding: 1rem 0 0.5rem 0;
+}
+.t-card .ahm-btn{
+    margin-top: 1rem;
+}
+/*  Call to Action Section   */
+.ahm-cta{
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: auto;
+    max-width: 100%;
+    color: var(--primary-color);
+    position: relative;   
+}
+.ahm-cta .ahm-header{
+    position: relative;
+}
+.ahm-cta h2{
+    color: var(--primary-color);
+    z-index: 3;
+}
+.ahm-cta .ahm-btn{
+    margin-top: 1.5rem;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.ahm-cta .ahm-btn:hover{
+    border-color: var(--accent-color);
+}
+.ahm-cta .ahm-overlay{
+    max-width: 100%;
+    height: 100%;
+    position: absolute;   
+}
+
+/*  Contact Us Section   */
+form{
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    background-color: var(--primary-color);
+    padding: 1rem 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);    
+}
+form input, select, textarea{
+    height: 2rem;
+    padding-left: 0.5rem;
+    margin: 0.3rem 0 1rem 0;   
+}
+form button{
+    width: 10rem;
+    font-size: 1rem;
+    margin-top: 2rem;    
+}
+.ahm-info{
+    position: relative;
+    width: 30rem;
+    height: 25rem;   
+}
+.ahm-info img{
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: 25rem;
+    object-fit: cover;
+    object-position: center;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+.ctc-info{
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    width: 60%;
+    background-color: var(--accent-color);
+    padding: 25px 0;
+    border-radius: 12px;
+    color: var(--primary-color);
+}
+.ctc-info h3{
+    color: var(--primary-color);
+}
+.ahm-info:hover img{
+    opacity: 0.3;
+}
+.ahm-info:hover .ctc-info{
+    opacity: 1;
+}
+
+/*  Articles Section   */
+
+/*     Footer Section     */
+.ftr-col{
+    width: 16rem;
+    margin: 1rem 0;
+}
+.ftr-col .social-links{
+    display: flex;
+    margin-top: 1.5rem; 
+}
+.ftr-col .social-links a{
+    margin-right: 1.5rem;
+    color: var(--overlay-color);
+}
+.ftr-col h5{
+    position: relative;
+    margin-bottom: 1.8rem;
+}
+.ftr-col h5::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.5rem;
+    height: 0.15rem;
+    box-sizing: border-box;
+    background-color: var(--accent-color);
+    width: 3rem;    
+}
+.ftr-col a{
+    list-style: none;
+    color: var(--secondary-color);
+    display: block;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+}
+.ftr-col a:hover{
+    color: var(--accent-color);
+    padding-left: 0.6rem;
+}
+.ftr-col .contact{
+    display: flex;
+    align-items: center;
+}
+.ftr-col .contact{
+    margin-top: 0.8rem;
+}
+.ftr-col .contact p{
+    margin-left: 1rem;
+}
+.ftr-col .contact i{
+    color: var(--overlay-color);
+}
+.ftr-content{
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    text-align: center;
+    padding: 1rem 0;
+}

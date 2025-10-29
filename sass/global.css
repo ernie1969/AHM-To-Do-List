@@ -1,0 +1,153 @@
+/*  Author: AdHubManila
+    Contact No: +63 0995 001 6415
+    Email: adhubmanila@gmail.com
+    Web URL: https://adhubmanila.hstn.me 
+*/
+
+/*     All meadurement are % and rem only     */
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, h3{font-family: "Roboto Condensed"; letter-spacing: 0.1rem; color: var(--text-color);}
+h4, h5, h6{font-family: "Roboto"; letter-spacing: 0.05rem; color: var(--text-color);}
+a{font-family: "Roboto"; text-decoration: none; letter-spacing: 0.1rem;}
+p{font-family: "Roboto"; letter-spacing: 0.1rem; line-height: 24px;}
+
+h1{font-size: 2rem; font-weight: 500}
+h2{font-size: 1.8rem; font-weight: 500}
+h3{font-size: 1.55rem; font-weight: 500}
+h4{font-size: 1.45rem; font-weight: 400}
+h5{font-size: 1.25rem; font-weight: 400}
+h6{font-size: 1.15rem; font-weight: 400}
+a{font-size: 1rem; font-weight: 300; text-decoration: none;}
+p{font-size: 1rem; font-weight: 300;}
+
+:root{
+    --primary-color: #ffffff;
+    --secondary-color: #000000;
+    --text-color: #969696;
+    --accent-color:#ff4400;
+    --background-color: #f5f5f5;
+    --overlay-color: rgba(0, 0, 0, 0.45)     
+}
+html{
+    scroll-behavior: smooth;
+    }
+body{
+    box-sizing: border-box;
+    margin: 0%; padding: 0%;
+    }
+
+/* Templates */
+.ahm-b-template{
+    padding: 0 10%;
+    background-color: var(--background-color);
+    }
+.ahm-n-template{
+    padding: 0 10%;
+    }
+
+.ahm-header{
+    padding: 3rem 5rem;
+    text-align: center;
+    }
+
+.ahm-header h2{
+        margin-bottom: 1rem;
+    }
+    
+.ahm-tagline{
+    margin: 0.5rem 0 1rem 0;
+}
+.first-par{
+    margin-bottom: 0.5rem;
+}
+
+.ahm-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+}
+
+.ahm-card{
+    width: 30rem;
+    margin-bottom: 2rem;
+}
+
+.f-card{
+    width: 30rem;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.t-card{
+    width: 20rem;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.ahm-btn{
+    display: inline-block;
+    background-color: transparent;
+    color: var(--secondary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+    border: 0.1rem solid var(--accent-color);
+    transition: transform 0.3s ease;    
+}
+.ahm-btn:hover{
+    background-color: var(--accent-color);
+    transform: scale(1.05);
+    color: var(--primary-color);       
+}
+
+button{
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+}
+
+/* Scroll to Top */
+#topBtn{
+    display: none;
+    position: fixed;
+    bottom: 1rem;
+    right: 1.5rem;
+    z-index: 2;
+    font-size: 2rem;
+    border: none;
+    outline: none;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 0.5rem 0.9rem 0 0.9rem;
+    border-radius: 0.5rem;
+    }
+#topBtn.show {
+    display: block;
+    opacity: 1;
+    }
+.show {
+    display: block;
+    opacity: 1;
+    }
+#topBtn.bounce {
+    animation: bounce 1s infinite;
+    }
+
+/* Bounce animation */
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+  }
+
+

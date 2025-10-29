@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;           /* Start completely invisible */
+    transform: translateY(30px); /* Start 30 pixels below its normal spot */
+  }
+  100% {
+    opacity: 1;           /* End fully visible */
+    transform: translateY(0);    /* End in its final position */
+  }
+}
+
+.mv-block,
+.value-item {
+    /* Set the starting point for all elements to be revealed */
+    opacity: 0;
+    transform: translateY(30px); 
+    /* Use a simple transition to make the initial state change smooth */
+    transition: opacity 0.8s, transform 0.8s; 
+}
+
+.mv-block.reveal,
+.value-item.reveal {
+    /* The animation overrides the initial 'transform' and 'opacity' */
+    animation: slideInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.mv-container {		
+    display: flex;
+    gap: 5rem;
+    margin: 3rem 0;	
+}
+
+.mv-block {
+    flex: 1; 
+    padding: 2.5rem; /* Reduced padding for better view */
+    border-radius: 10px; 
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    background-color: azure;
+}
+
+.values-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+}
+
+.value-item {
+    padding: 2rem 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+/* 5. RESPONSIVE STACKING */
+@media (max-width: 992px) {
+    .values-grid-container { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+}
+@media (max-width: 768px) {
+    .mv-container { flex-direction: column; gap: 2rem; }
+}
+@media (max-width: 576px) {
+    .values-grid-container { grid-template-columns: 1fr; }
+}
+
+
+/* 2. Stagger the Mission & Vision Blocks */
+.mv-block:nth-child(1) {
+    animation-delay: 0.1s; /* Mission appears first */
+}
+.mv-block:nth-child(2) {
+    animation-delay: 0.3s; /* Vision appears second */
+}
+
+/* 3. Stagger the Core Values Grid */
+.value-item:nth-child(1) {
+    animation-delay: 0.5s; /* Value 1 */
+}
+.value-item:nth-child(2) {
+    animation-delay: 0.7s; /* Value 2 */
+}
+.value-item:nth-child(3) {
+    animation-delay: 0.9s; /* Value 3 */
+}
+.value-item:nth-child(4) {
+    animation-delay: 1.1s; /* Value 4 appears last */
+}
+
+                </style>
+</head>
+<body>
+    <section class="ahm-about ahm-b-template mv-section">
+        <div class="ahm-header">
+            <h2>Our Mission & Vision</h2>
+        </div>
+        
+        <div class="ahm-container mv-container">
+            
+            <div class="mv-block mission">
+                <i class="fas fa-arrow-up"></i>
+                <h3>Mission</h3>
+                <p>To empower local Philippine businesses with world-class, cost-effective creative solutions that bridge the gap between design and measurable commercial results.</p>
+            </div>
+            
+            <div class="mv-block vision">
+                <i class="far fa-eye"></i>
+                <h3>Vision</h3>
+                <p>To be recognized as the premier creative commercial arts hub in Manila, fostering lasting partnerships and driving innovation across print and digital media.</p>
+            </div>
+            
+        </div>
+    </section>
+    
+    <section class="ahm-about ahm-n-template values-section">
+        <div class="ahm-header">
+            <h2>Our Core Values</h2>
+            <p>These principles guide every design, print job, and strategic decision we make.</p>
+        </div>
+    
+        <div class="ahm-container values-grid-container">
+            
+            <div class="value-item">
+                <i class="fas fa-lightbulb"></i>
+                <h4>Creativity</h4>
+                <p>We push boundaries to deliver unique, memorable, and impactful designs for every client.</p>
+            </div>
+            
+            <div class="value-item">
+                <i class="fas fa-user-shield"></i>
+                <h4>Integrity</h4>
+                <p>We uphold transparency and honesty, ensuring ethical communication and delivery in all our services.</p>
+            </div>
+            
+            <div class="value-item">
+                <i class="fas fa-star-half-alt"></i>
+                <h4>Quality</h4>
+                <p>From the ink on the page to the code on the screen, we never compromise on the excellence of our output.</p>
+            </div>
+            
+            <div class="value-item">
+                <i class="fas fa-handshake"></i>
+                <h4>Teamwork</h4>
+                <p>We work collaboratively with you, treating your business goals as our own to achieve mutual success.</p>
+            </div>
+            
+        </div>
+    </section>
+    
+    <script>
+        // script/scroll-reveal.js
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. Select all the elements you want to animate
+            // We select the Mission, Vision, and all Value items
+            const revealElements = document.querySelectorAll('.mv-block, .value-item');
+            
+            // 2. Define the callback function for the observer
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    // Check if the element is currently visible in the viewport
+                    if (entry.isIntersecting) {
+                        // If visible, add the 'reveal' class to start the CSS animation
+                        entry.target.classList.add('reveal');
+                        
+                        // Stop observing this element once it has been revealed
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+            
+            // 3. Define the observer options (when to trigger the callback)
+            const observerOptions = {
+                root: null, // use the viewport as the container
+                rootMargin: '0px 0px -150px 0px', // Trigger 150px before the bottom edge of the screen
+                threshold: 0.1 // Triggers when 10% of the item is visible
+            };
+            
+            // 4. Create and start the Intersection Observer
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            
+            // 5. Tell the observer to watch all the selected elements
+            revealElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Note: You can add staggered delays back into the CSS, 
+            // but the simple reveal is usually cleaner and more reliable with JS control.
+        });
+    </script>
+</body>
+</html>

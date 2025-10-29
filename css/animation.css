@@ -1,0 +1,78 @@
+/*  Author: AdHubManila
+    Contact No: +63 0995 001 6415
+    Email: adhubmanila@gmail.com
+    Web URL: https://adhubmanila.onamaeweb.jp  
+*/
+
+/*`   Animation Fade   `*/
+@keyframes fadeInLeft{
+    0%{
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    100%{
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+
+.caption{
+    margin: 22rem 0 0 10%;
+    width: 35%; 
+    position: absolute;
+    animation: fadeInLeft 1s ease forwards;    
+}
+
+/*`   Animation SlideINUp   `*/
+@keyframes slideInUp {
+  0% {
+    opacity: 0;           /* Start completely invisible */
+    transform: translateY(30px); /* Start 30 pixels below its normal spot */
+  }
+  100% {
+    opacity: 1;           /* End fully visible */
+    transform: translateY(0);    /* End in its final position */
+  }
+}
+
+.ahm-header, .f-card, .ahm-card, .t-card{
+    opacity: 0; /* Set the starting point for all elements to be revealed */
+    transform: translateY(30px); 
+    transition: opacity 0.8s, transform 0.8s; /* Use a simple transition to make the initial state change smooth */
+}
+.ahm-header.reveal,
+.f-card.reveal,
+.ahm-card.reveal,
+.t-card.reveal{
+    /* The animation overrides the initial 'transform' and 'opacity' */
+    animation: slideInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+.f-card:nth-child(1) {
+  animation-delay: 0.5s; /* Value 1 */
+}
+.f-card:nth-child(2) {
+  animation-delay: 0.8s; /* Value 1 */
+}
+.f-card:nth-child(3) {
+  animation-delay: 0.11s; /* Value 1 */
+}
+.f-card:nth-child(4) {
+  animation-delay: 0.16s; /* Value 1 */
+}
+
+.ahm-card:nth-child(1){
+  animation-delay: 0.5s; /* Value 1 */
+}
+.ahm-card:nth-child(2){
+  animation-delay: 0.8s; /* Value 2 */
+}
+
+.t-card:nth-child(1){
+  animation-delay: 0.11s; /* Value 1 */
+}
+.t-card:nth-child(2){
+  animation-delay: 0.5s; /* Value 2 */
+}
+.t-card:nth-child(3){
+  animation-delay: 0.8s; /* Value 3 */
+}

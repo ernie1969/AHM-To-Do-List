@@ -1,0 +1,123 @@
+/* Author: AdHubManila
+    Contact No: +63 0995 001 6415
+    Email: adhubmanila@gmail.com
+    Web URL: https://adhubmanila.onamaeweb.jp 
+*/
+/*      Responsive      */
+@media only screen and  (max-width: 1050px){
+    .ahm-b-template{
+        padding: 0 5%;
+        background-color: var(--background-color);
+        }
+    .ahm-n-template{
+        padding: 0 5%;
+        }
+    .ahm-about .ahm-header{
+        text-align: left;
+        padding: 3rem 0%;
+    }
+    .ahm-card{
+        width: 100%;
+    }
+    .f-card, .ftr-col{
+        width: 25rem;
+    }
+    .t-card{
+        width: 100%;
+    }
+
+    /*     Home Section     */
+    .ahm-navbar{
+        padding: 1rem 5%;
+    }
+    .navmenu{
+        display: none;
+    }
+    .toggle-btn{
+        display: inline-block; 
+        margin-right: 2rem;
+    }
+    .dropMenu.open{
+        position: absolute;
+        top: 5rem;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        animation: fadeInLeft 0.5s ease forwards;
+        overflow: hidden;   
+    }
+    .dropMenu.open a{
+        color: var(--primary-color);
+    }
+    .dropMenu.open a:hover{
+        background-color: var(--accent-color);
+    }
+    .caption{
+        margin: 22rem 0 0 5%;
+        width: 50%;  
+    }
+
+    .about-page .ahm-hero{
+        width: 100%;
+    }
+    .ahm-hero .ahm-caption{
+        padding: 20% 30% ;
+    }
+    }
+
+    /*     Service Section     */
+    /*     About Section     */
+    /*     Projects Section     */
+    /*     Contact Us Section     */
+    /*     Articles Section     */
+@media only screen and  (max-width: 910px) {
+    .ahm-header{
+        padding: 3rem 0;    
+    }
+    .bullet{
+        top: 37rem;
+    }
+    .ahm-cta .ahm-header{
+        padding: 3rem 5%;
+    }
+    .f-card{
+        width: 50rem;
+    }
+    .f-card button{
+        top: 13rem;
+    }
+    .ahm-project-gallery{
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    }
+    .ahm-projects button{
+        margin-top: 0;
+    }
+    }
+
+@media only screen and  (max-width: 574px){
+    .caption{
+        margin: 22rem 0 0 5%;
+        width: 90%;  
+    }
+    .bullet{
+        top: 37rem;
+    }
+    .f-card button{
+        top: 5.5rem;
+    }
+    .t-card{
+        width: 100%;
+    }
+    .ahm-project-gallery{
+        grid-template-columns: 1fr; /* 1 column on mobile phone */
+    }
+    .ahm-projects button{
+        margin-top: 10%;
+    }
+    .ahm-hero .ahm-caption{ 
+        padding: 20% 16%;
+    }
+    .ahm-accordion{
+        padding: 1rem;       
+    }
+    }
