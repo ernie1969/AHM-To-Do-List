@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tobuylist</title>
+
+    <style>
+        body {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(to right, #6DD5FA, #FF758C);
+  color: #333;
+}
+
+#tobuy-app {
+  width: 80%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#tobuy-form input[type="text"] {
+  width: 70%;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+#tobuy-form button {
+  padding: 10px 20px;
+  background-color: #5F9EA0;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#tobuy-form button:hover {
+  background-color: #4682B4;
+}
+
+#tobuy-list {
+  list-style: none;
+  padding: 0;
+}
+
+#tobuy-list li {
+  background-color: #f9f9f9;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+    </style>
+</head>
+<body>
+    <main id="tobuy-app">
+        <h1>To Buy List</h1>
+        <form id="tobuy-form">
+            <input type="text" id="tobuy-input" placeholder="Add a new Item...">
+            <button type="submit">Add Item/s</button>
+        </form>
+    </main>
+    <ul id="tobuy-list">
+        <!-- Items will be added here -->
+    </ul>
+
+    <script>
+        const tobuyForm = document.getElementById('tobuy-form');
+        const tobuyInput = document.getElementById('tobuy-input');
+        const tobuyList = document.getElementById('tobuy-list');
+
+        tobuyForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const newItem = tobuyInput.value;
+
+        if (newItem === '') {
+            alert('Please enter Item/s!');
+            return;
+        }
+        tobuyInput.value = '';
+        addItem(newItem);
+        });
+
+        function addItem(Item) {
+        const listItem = document.createElement('li');
+        const ItemText = document.createElement('span');
+        ItemText.textContent = Item;
+        listItem.appendChild(ItemText);
+
+        const checkBox = document.createElement('input');
+        checkBox.setAttribute('type', 'checkbox');
+        listItem.appendChild(checkBox);
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        listItem.appendChild(deleteButton);
+
+        tobuyList.appendChild(listItem);
+
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        listItem.appendChild(editButton);
+
+        checkBox.addEventListener('change', function() {
+            if (this.checked) {
+                ItemText.style.textDecoration = 'line-through';
+                ItemText.style.textDecorationColor = 'red';
+                ItemText.style.backgroundColor= 'red';
+            } else {
+                ItemText.style.textDecoration = 'none';
+            }
+        });
+        
+        deleteButton.addEventListener('click', function() {
+            tobuyList.removeChild(listItem);
+        });
+
+        editButton.addEventListener('click', function() {
+            const isEditing = listItem.classList.contains('editing');
+        
+            if (isEditing) {
+                
+                ItemText.textContent = this.previousSibling.value;
+                listItem.classList.remove('editing');
+                editButton.textContent = 'Edit';
+            } else {
+                
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.value = ItemText.textContent;
+                listItem.insertBefore(input, ItemText);
+                listItem.removeChild(ItemText);
+                listItem.classList.add('editing');
+                editButton.textContent = 'Save';
+            }
+        });
+
+        saveItemsToLocalStorage();
+        }
+
+        function saveItemsToLocalStorage() {
+        const Items = [];
+        document.querySelectorAll('#tobuy-list li').forEach(Item => {
+            const ItemText = Item.querySelector('span').textContent;
+            const isCompleted = Item.classList.contains('completed');
+            Items.push({ text: ItemText, completed: isCompleted });
+        });
+        localStorage.setItem('Items', JSON.stringify(Items));
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+        const savedItems = JSON.parse(localStorage.getItem('Items')) || [];
+        savedItems.forEach(Item => {
+            addItem(Item.text);
+        });
+        });
+    </script>
+</body>
+</html>
